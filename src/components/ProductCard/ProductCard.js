@@ -10,7 +10,15 @@ const ProductCard = () => {
           src="https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png"
           alt="product"
         />
-        <div className={classes.productName}>Hello</div>
+        <div className={classes.productDetails}>
+          <div className={classes.productName}>Hello</div>
+
+          <div className={classes.priceCart}>
+            <p className={classes.price}>₹500</p>
+
+            <button className={classes.btn}>Add to Cart</button>
+          </div>
+        </div>
       </div>
     </>
   );

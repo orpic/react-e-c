@@ -14,5 +14,45 @@
   object-position: top;
 }
 
+.productDetails {
+  height: 30%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .productName {
+  margin-top: 0.4rem;
+  font-size: 3rem;
+}
+
+.priceCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.price {
+  font-size: 2rem;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  background-color: transparent;
+  font-size: 1.8rem;
+  color: inherit;
+  padding: 0.6rem;
+  box-shadow: inset 0 0 0 2px #eb984e;
+  border-radius: 9px;
+  cursor: pointer;
+  /* margin: 1rem; */
+  transition: all 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #eb984e;
+  color: #fff;
 }
