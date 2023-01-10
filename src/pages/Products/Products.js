@@ -7,11 +7,13 @@ const Products = () => {
   return (
     <>
       <main className={classes.main}>
-        <div className={classes.search}>
+        <div className={classes.searchPosition}>
           <SearchBar />
         </div>
-        <FilterSection />
-        <div>Product Area</div>
+        <div className={classes.filterPosition}>
+          <FilterSection />
+        </div>
+        <div className={classes.productsPosition}>Product Area</div>
       </main>
     </>
   );
