@@ -11,6 +11,17 @@
   font-size: 3rem;
   color: white;
   margin-left: 2rem;
+  cursor: pointer;
+}
+.logo a,
+.logo a:link,
+.logo a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo a:hover,
+.logo a:active {
 }
 
 .nav {
@@ -30,10 +41,11 @@
 .nav a,
 .nav a:link,
 .nav a:visited {
-  padding: 1rem;
+  padding: 0.8rem;
   text-decoration: none;
   color: #fff;
   border: none;
+  border-radius: 9px;
   transition: all 0.3s;
 }
 
