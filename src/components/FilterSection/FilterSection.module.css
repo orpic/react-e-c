@@ -1,7 +1,29 @@
 .filterArea {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 3rem;
+  padding-left: 3rem;
+
+  height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filterArea::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.filterArea h2 {
+  font-size: 3rem;
+}
+
+.filterSubHeading {
+  font-size: 2.6rem;
+  margin: 1rem;
+  text-transform: capitalize;
+}
+
+.leftMargin {
+  margin-left: 3rem;
 }
 
 /* The container */
@@ -11,7 +33,7 @@
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 1.8rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -32,8 +54,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 2.4rem;
+  width: 2.4rem;
   background-color: #eee;
 }
 
@@ -61,8 +83,8 @@
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 8px;
+  top: 4px;
   width: 5px;
   height: 10px;
   border: solid white;
