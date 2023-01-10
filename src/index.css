@@ -25,9 +25,9 @@ Large: 1.8
 --- 02 COLORS
 - Primary: #e67e22
 - Tints:
-#fdf2e9
-#fae5d3
-#eb984e
+#eb984e - darkest tint
+#fae5d3 - medium tint
+#fdf2e9 - lightest tint
 
 - Shades: 
 #cf711f
@@ -47,6 +47,8 @@ Large: 1.8
 Default: 9px
 Medium: 11px
 */
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 
 * {
   margin: 0;

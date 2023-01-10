@@ -1,5 +1,6 @@
 import React from "react";
-import "./Layout.css";
+// eslint-disable-next-line
+import classes from "./Layout.module.css";
 import { MainNavigation } from "../../components";
 
 const Layout = ({ children }) => {

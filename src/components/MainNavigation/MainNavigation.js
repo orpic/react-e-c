@@ -1,5 +1,6 @@
 import React from "react";
-import "./MainNavigation.css";
+// eslint-disable-next-line
+import classes from "./MainNavigation.module.css";
 import { NavLink } from "react-router-dom";
 
 //importing path
@@ -7,23 +8,17 @@ import { cartPath, productsPath } from "../../pages";
 
 const MainNavigation = () => {
   return (
-    <header>
-      <div>TeeRex Store</div>
-      <nav>
+    <header className={classes.header}>
+      <div className={classes.logo}>TeeRex Store</div>
+      <nav className={classes.nav}>
         <ul>
           <li>
-            <NavLink
-              to={productsPath}
-              activeClassName={"TODO - add active css class"}
-            >
+            <NavLink to={productsPath} activeClassName={classes.active}>
               Products
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to={cartPath}
-              activeClassName={"TODO - add active css class"}
-            >
+            <NavLink to={cartPath} activeClassName={classes.active}>
               Cart
             </NavLink>
           </li>

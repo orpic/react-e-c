@@ -1,0 +1,44 @@
+.header {
+  width: 100vw;
+  height: 6.4rem;
+  display: flex;
+  background-color: #eb984e;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 3rem;
+  color: white;
+  margin-left: 2rem;
+}
+
+.nav {
+  margin-right: 2rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav li {
+  font-size: 2rem;
+}
+
+.nav a,
+.nav a:link,
+.nav a:visited {
+  text-decoration: none;
+  color: #fff;
+  border: none;
+}
+
+.nav a:hover,
+.nav a:active {
+  border-bottom: 3px solid #fff;
+}
+.nav a.active {
+  border-top: 3px solid #fff;
+}

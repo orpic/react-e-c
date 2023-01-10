@@ -1,5 +1,6 @@
 import React from "react";
-import "./Products.css";
+// eslint-disable-next-line
+import classes from "./Products.module.css";
 
 const Products = () => {
   return <div>Products</div>;
