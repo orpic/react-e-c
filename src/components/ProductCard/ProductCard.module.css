@@ -1,5 +1,18 @@
 .cardContainer {
-  height: 220px;
-  width: 240px;
-  background-color: green;
+  height: 250px;
+  width: 275px;
+  background-color: #fae5d3;
+  padding: 1rem;
+  /* text-align: center; */
+}
+
+.productImage {
+  width: 100%;
+  height: 70%;
+  /* height: 100%; */
+  object-fit: cover;
+  object-position: top;
+}
+
+.productName {
 }

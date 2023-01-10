@@ -6,8 +6,10 @@ import { MainNavigation } from "../../components";
 const Layout = ({ children }) => {
   return (
     <div className={classes.layout}>
-      <MainNavigation />
-      <main className="TODO - add css class">{children}</main>
+      <div className={classes.mainNav}>
+        <MainNavigation />
+      </div>
+      <div className={classes.main}>{children}</div>
     </div>
   );
 };

@@ -1,3 +1,7 @@
 .area {
   padding: 4.8rem;
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
