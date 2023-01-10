@@ -1,6 +1,5 @@
 import React from "react";
-import { FilterSection, SearchBar } from "../../components";
-// eslint-disable-next-line
+import { FilterSection, ProductArea, SearchBar } from "../../components";
 import classes from "./Products.module.css";
 
 const Products = () => {
@@ -13,7 +12,9 @@ const Products = () => {
         <div className={classes.filterPosition}>
           <FilterSection />
         </div>
-        <div className={classes.productsPosition}>Product Area</div>
+        <div className={classes.productsPosition}>
+          <ProductArea />
+        </div>
       </main>
     </>
   );
