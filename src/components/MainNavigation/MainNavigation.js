@@ -8,23 +8,32 @@ import { NavLink } from "react-router-dom";
 import { cartPath, productsPath } from "../../pages";
 
 const MainNavigation = () => {
+  const navLinkData = [
+    {
+      toLink: productsPath,
+      linkText: "Products",
+      addInfo: "",
+    },
+    {
+      toLink: cartPath,
+      linkText: "Cart",
+      addInfo: "",
+    },
+  ];
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
         <NavLink to="/">TeeRex Store</NavLink>
       </div>
       <nav className={classes.nav}>
-        <ul>
-          <li>
-            <NavLink to={productsPath} activeClassName={classes.active}>
-              Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={cartPath} activeClassName={classes.active}>
-              Cart
-            </NavLink>
-          </li>
+        <ul className={classes.ul}>
+          {navLinkData.map((eachLink) => (
+            <li key={eachLink.linkText}>
+              <NavLink to={eachLink.toLink} activeClassName={classes.active}>
+                {eachLink.linkText}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

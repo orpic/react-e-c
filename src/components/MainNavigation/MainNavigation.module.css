@@ -20,27 +20,23 @@
   text-decoration: none;
 }
 
-.logo a:hover,
-.logo a:active {
-}
-
 .nav {
   margin-right: 2rem;
 }
 
-.nav ul {
+.ul {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
-.nav li {
+.ul li {
   font-size: 2rem;
 }
 
-.nav a,
-.nav a:link,
-.nav a:visited {
+.ul a,
+.ul a:link,
+.ul a:visited {
   padding: 0.8rem;
   text-decoration: none;
   color: #fff;
@@ -49,12 +45,12 @@
   transition: all 0.3s;
 }
 
-.nav a:hover,
-.nav a:active {
+.ul a:hover,
+.ul a:active {
   box-shadow: inset 0 0 0 3px #fff;
   border-bottom: 0px solid #fff;
 }
-.nav a.active {
-  border-bottom: 1px solid #fff;
+.ul a.active {
+  border-bottom: 2px solid #fff;
   box-shadow: inset 0 0 0 0px #fff;
 }

@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Products.module.css";
 
 const Products = () => {
-  return <div>Products</div>;
+  return <></>;
 };
 
 export const productsPath = "/products";
