@@ -3,7 +3,11 @@ import React from "react";
 import classes from "./FilterSection.module.css";
 
 const FilterSection = () => {
-  return <div>FilterSection</div>;
+  return (
+    <>
+      <div className={classes.filterArea}></div>
+    </>
+  );
 };
 
 export default FilterSection;
