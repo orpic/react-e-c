@@ -8,7 +8,8 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/" exact>
-            <Redirect to={productsPath} />
+            {/* TODO correct it to product path */}
+            <Redirect to={cartPath} />
           </Route>
 
           <Route path={productsPath} exact>

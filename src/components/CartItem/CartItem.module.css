@@ -1,0 +1,17 @@
+.container {
+  width: 450px;
+  border: 1px solid #eb984e;
+  background-color: #fdf2e9;
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image {
+  width: 75px;
+  margin: 0.8rem;
+  border: 1px solid #eb984e;
+  border-radius: 3px;
+}
