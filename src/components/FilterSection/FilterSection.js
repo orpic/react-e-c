@@ -24,28 +24,22 @@ const FilterSection = () => {
   return (
     <>
       <div className={classes.filterArea}>
-        <h2>Filters</h2>
-        {filterList.map((eachFilter) => (
-          <>
-            <p className={classes.filterSubHeading}>{eachFilter.title}</p>
-            <div className={classes.leftMargin}>
-              {eachFilter.tags.map((eachTag) => (
-                <label className={classes.container}>
-                  {eachTag}
-                  <input type="checkbox" />
-                  <span className={classes.checkmark}></span>
-                </label>
-              ))}
-            </div>
-          </>
-        ))}
-        <p className={classes.filterSubHeading}>H</p>
-        <div className={classes.leftMargin}>
-          <label className={classes.container}>
-            One
-            <input type="checkbox" />
-            <span className={classes.checkmark}></span>
-          </label>
+        <div className={classes.move}>
+          <h2>Filters</h2>
+          {filterList.map((eachFilter) => (
+            <>
+              <p className={classes.filterSubHeading}>{eachFilter.title}</p>
+              <div className={classes.leftMargin}>
+                {eachFilter.tags.map((eachTag) => (
+                  <label className={classes.container}>
+                    {eachTag}
+                    <input type="checkbox" />
+                    <span className={classes.checkmark}></span>
+                  </label>
+                ))}
+              </div>
+            </>
+          ))}
         </div>
       </div>
     </>

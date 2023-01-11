@@ -4,6 +4,7 @@
   background-color: #fae5d3;
   padding: 1rem;
   /* text-align: center; */
+  border-radius: 9px;
 }
 
 .productImage {
@@ -12,11 +13,12 @@
   /* height: 100%; */
   object-fit: cover;
   object-position: top;
+  border-radius: 9px;
 }
 
 .productDetails {
   height: 30%;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,7 +26,7 @@
 
 .productName {
   margin-top: 0.4rem;
-  font-size: 3rem;
+  font-size: 2.4rem;
 }
 
 .priceCart {
@@ -34,7 +36,7 @@
 }
 
 .price {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .btn,
