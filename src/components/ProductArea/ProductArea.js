@@ -1,22 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 // eslint-disable-next-line
 import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
-import useHttp from "../../hooks/use-http";
-import { getProducts } from "../../lib/api";
 
-const ProductArea = () => {
-  const {
-    sendRequest,
-    status,
-    data: products,
-    error,
-  } = useHttp(getProducts, true);
+const ProductArea = ({ status, products, error }) => {
+  // const {
+  //   sendRequest,
+  //   status,
+  //   data: products,
+  //   error,
+  // } = useHttp(getProducts, true);
 
-  useEffect(() => {
-    sendRequest();
-  }, [sendRequest]);
+  // useEffect(() => {
+  //   sendRequest();
+  // }, [sendRequest]);
 
   if (status === "pending") {
     return (

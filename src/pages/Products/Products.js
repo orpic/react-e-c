@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FilterSection, ProductArea, SearchBar } from "../../components";
+import useHttp from "../../hooks/use-http";
+import { getProducts } from "../../lib/api";
 import classes from "./Products.module.css";
 
 const Products = () => {
+  const {
+    sendRequest,
+    status,
+    data: products,
+    error,
+  } = useHttp(getProducts, true);
+
+  useEffect(() => {
+    sendRequest();
+  }, [sendRequest]);
+
   return (
     <>
       <main className={classes.main}>
@@ -13,7 +26,7 @@ const Products = () => {
           <FilterSection />
         </div>
         <div className={classes.productsPosition}>
-          <ProductArea />
+          <ProductArea status={status} products={products} error={error} />
         </div>
       </main>
     </>
