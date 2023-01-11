@@ -18,20 +18,20 @@ const Products = () => {
     sendRequest();
   }, [sendRequest]);
 
-  const searchText = ["polo", "green"];
-  const searchProducts = (productsList, searchText) => {
-    return productsList.filter((product) =>
-      searchText.every(
-        (text) =>
-          product.name.toLowerCase().includes(text.toLowerCase()) ||
-          product.color.toLowerCase().includes(text.toLowerCase()) ||
-          product.type.toLowerCase().includes(text.toLowerCase())
-      )
-    );
-  };
+  // const searchText = ["polo", "green"];
+  // const searchProducts = (productsList, searchText) => {
+  //   return productsList.filter((product) =>
+  //     searchText.every(
+  //       (text) =>
+  //         product.name.toLowerCase().includes(text.toLowerCase()) ||
+  //         product.color.toLowerCase().includes(text.toLowerCase()) ||
+  //         product.type.toLowerCase().includes(text.toLowerCase())
+  //     )
+  //   );
+  // };
 
-  const searchResult = searchProducts(products, searchText);
-  console.log(searchResult);
+  // const searchResult = searchProducts(products, searchText);
+  // console.log(searchResult);
 
   // const filterProducts = products.filter((item) => {
   // item.type.toLowerCase().includes(searchText.toLowerCase());
@@ -49,7 +49,7 @@ const Products = () => {
           <FilterSection />
         </div>
         <div className={classes.productsPosition}>
-          {/* <ProductArea stats={status} products={products} error={error} /> */}
+          <ProductArea stats={status} products={products} error={error} />
         </div>
       </main>
     </>
