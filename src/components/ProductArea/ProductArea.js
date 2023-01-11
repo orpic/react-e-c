@@ -1,13 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 // eslint-disable-next-line
 import classes from "./ProductArea.module.css";
 
-import { ProductCard } from "../../components";
+import { LoadingSpinner, ProductCard } from "../../components";
+import useHttp from "../../hooks/use-http";
+import { getProducts } from "../../lib/api";
 
 const ProductArea = () => {
+  const {
+    sendRequest,
+    status,
+    data: products,
+    error,
+  } = useHttp(getProducts, true);
+
+  useEffect(() => {
+    sendRequest();
+  }, [sendRequest]);
+
+  if (status === "pending") {
+    return (
+      <div className={classes.area}>
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className={classes.area}>{error}</div>;
+  }
+
+  if (status === "completed" && (!products || products.length === 0)) {
+    return (
+      <div className={classes.area}>
+        <span>No Products</span>
+      </div>
+    );
+  }
+
   return (
     <div className={classes.area}>
-      <ProductCard />
+      {products.map((eachProduct) => (
+        <ProductCard
+          key={eachProduct.id}
+          productImage={eachProduct.imageURL}
+          productName={eachProduct.name}
+          productPrice={eachProduct.price}
+        />
+      ))}
     </div>
   );
 };

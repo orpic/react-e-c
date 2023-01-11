@@ -4,7 +4,13 @@ const fetchUrl =
 export async function getProducts() {
   const response = await fetch(fetchUrl);
 
-  console.log(response);
+  const data = await response.json();
 
-  return response;
+  if (!response.ok) {
+    throw new Error(data.message || "Could not fetch products.");
+  }
+
+  //   console.log(data);
+
+  return data;
 }

@@ -1,5 +1,6 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import { Layout } from "./components";
+
 import { Cart, cartPath, Products, productsPath } from "./pages";
 
 function App() {
