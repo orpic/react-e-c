@@ -1,6 +1,6 @@
-# React-tee-rex-shop
+# React-e-c
 
-An e-commerce shop front-end
+To be added
 
 ## Deployed
 
@@ -11,7 +11,7 @@ Production build deployed on firebase - [Link to site](https://)
 Go to the project directory
 
 ```bash
-  cd react-tee-rex-shop
+  cd react-e-c
 ```
 
 Install dependencies
