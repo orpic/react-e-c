@@ -1,15 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 // eslint-disable-next-line
 import classes from "./SearchBar.module.css";
 
 const SearchBar = () => {
+  // controlled input field
+  const [searchText, setSearchText] = useState("");
+
+  //clear button - cleans the input label
+  const clearButtonHandler = () => {
+    setSearchText("");
+  };
+
+  // Input Change Listener
+  const textInputHandler = (event) => {
+    const textValue = event.target.value;
+    setSearchText(textValue);
+  };
+
+  //splitting into free text and sending data
+  const searchHandler = () => {
+    const searchList = searchText.split(" ");
+    console.log(searchList);
+    //TODO send this data to above this file
+  };
+
   return (
     <>
       <div className={classes.border}>
         <div className={classes.search}>
-          <input className={classes.input} />
-          <button className={classes.clearButton}>Clear</button>
-          <button className={classes.searchButton}>Search</button>
+          <input
+            value={searchText}
+            onChange={textInputHandler}
+            className={classes.input}
+          />
+          <button onClick={clearButtonHandler} className={classes.clearButton}>
+            Clear
+          </button>
+          <button onClick={searchHandler} className={classes.searchButton}>
+            Search
+          </button>
         </div>
       </div>
     </>

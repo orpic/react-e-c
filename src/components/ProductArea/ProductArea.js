@@ -4,7 +4,7 @@ import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
 
-const ProductArea = ({ status, products, error }) => {
+const ProductArea = ({ stats, products, error }) => {
   // const {
   //   sendRequest,
   //   status,
@@ -16,7 +16,7 @@ const ProductArea = ({ status, products, error }) => {
   //   sendRequest();
   // }, [sendRequest]);
 
-  if (status === "pending") {
+  if (stats === "pending") {
     return (
       <div className={classes.area}>
         <LoadingSpinner />
@@ -28,7 +28,7 @@ const ProductArea = ({ status, products, error }) => {
     return <div className={classes.area}>{error}</div>;
   }
 
-  if (status === "completed" && (!products || products.length === 0)) {
+  if (stats === "completed" && (!products || products.length === 0)) {
     return (
       <div className={classes.area}>
         <span>No Products</span>

@@ -27,18 +27,18 @@ const FilterSection = () => {
         <div className={classes.move}>
           <h2>Filters</h2>
           {filterList.map((eachFilter) => (
-            <>
+            <div key={eachFilter.title}>
               <p className={classes.filterSubHeading}>{eachFilter.title}</p>
               <div className={classes.leftMargin}>
                 {eachFilter.tags.map((eachTag) => (
-                  <label className={classes.container}>
+                  <label key={eachTag} className={classes.container}>
                     {eachTag}
                     <input type="checkbox" />
                     <span className={classes.checkmark}></span>
                   </label>
                 ))}
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
