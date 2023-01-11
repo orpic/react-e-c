@@ -8,17 +8,6 @@ const ProductArea = () => {
   return (
     <div className={classes.area}>
       <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
     </div>
   );
 };
