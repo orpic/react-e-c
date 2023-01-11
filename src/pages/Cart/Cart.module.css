@@ -28,6 +28,13 @@
 
 .totalAmount {
   font-size: 2rem;
+  position: sticky;
+  /* bottom: 5px; */
+  bottom: 5px;
+  background-color: #fdf2e9;
+  padding: 1rem;
+  border-radius: 9px;
+  border: 2px solid #eb984e;
 }
 
 .totalAmount span {
