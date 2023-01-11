@@ -16,7 +16,7 @@ const ProductCard = ({ productImage, productName, productPrice }) => {
           <div className={classes.priceCart}>
             <p className={classes.price}>
               <span>₹</span>
-              {productPrice}`
+              {productPrice}
             </p>
 
             <button className={classes.btn}>Add to Cart</button>

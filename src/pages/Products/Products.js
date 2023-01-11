@@ -17,6 +17,8 @@ const Products = () => {
   useEffect(() => {
     sendRequest();
   }, [sendRequest]);
+  console.log(status);
+  console.log(products);
 
   // const searchText = ["polo", "green"];
   // const searchProducts = (productsList, searchText) => {
@@ -49,7 +51,7 @@ const Products = () => {
           <FilterSection />
         </div>
         <div className={classes.productsPosition}>
-          <ProductArea stats={status} products={products} error={error} />
+          <ProductArea status={status} products={products} error={error} />
         </div>
       </main>
     </>

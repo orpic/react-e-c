@@ -4,41 +4,46 @@ import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
 
-const ProductArea = ({ stats, products, error }) => {
-  // const {
-  //   sendRequest,
-  //   status,
-  //   data: products,
-  //   error,
-  // } = useHttp(getProducts, true);
-
-  // useEffect(() => {
-  //   sendRequest();
-  // }, [sendRequest]);
-
-  if (stats === "pending") {
+const ProductArea = ({ status, products, error }) => {
+  if (status === "pending") {
     return (
       <div className={classes.area}>
         <LoadingSpinner />
       </div>
     );
   }
-
   if (error) {
-    return <div className={classes.area}>{error}</div>;
-  }
-
-  if (stats === "completed" && (!products || products.length === 0)) {
     return (
       <div className={classes.area}>
-        <span>No Products</span>
+        <p>{error}</p>
       </div>
     );
   }
+  if (status === "completed" && (!products || products.length === 0)) {
+    return (
+      <div className={classes.area}>
+        <p>No Data Found</p>
+      </div>
+    );
+  }
+  const searchText = ["polo", "green"];
+  const searchProducts = (productsList, searchText) => {
+    return productsList.filter((product) =>
+      searchText.every(
+        (text) =>
+          product.name.toLowerCase().includes(text.toLowerCase()) ||
+          product.color.toLowerCase().includes(text.toLowerCase()) ||
+          product.type.toLowerCase().includes(text.toLowerCase())
+      )
+    );
+  };
+
+  const searchResult = searchProducts(products, searchText);
+  console.log(searchResult);
 
   return (
     <div className={classes.area}>
-      {products.map((eachProduct) => (
+      {searchResult.map((eachProduct) => (
         <ProductCard
           key={eachProduct.id}
           productImage={eachProduct.imageURL}
