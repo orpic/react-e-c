@@ -8,7 +8,15 @@ const Cart = () => {
     <>
       <div className={classes.container}>
         <p className={classes.heading}>Shopping cart</p>
-        <CartItem />
+        <div className={classes.items}>
+          <CartItem />
+          <CartItem />
+
+          <CartItem />
+        </div>
+        <p className={classes.totalAmount}>
+          Total Amount: ₹<span>455</span>
+        </p>
       </div>
     </>
   );
