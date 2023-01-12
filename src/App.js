@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { productActions } from "./store/productSlice";
 
 function App() {
+  ////////////////////////////////////////////////////////////////////////
+  // getting products data from
   const dispatch = useDispatch();
   const {
     sendRequest,
@@ -22,6 +24,7 @@ function App() {
     sendRequest();
   }, [sendRequest]);
 
+  ////////////////////////////////////////////////////////////////////////
   // four status for product store - / pending / error / empty / success /
   useEffect(() => {
     if (status === "pending") {
@@ -40,6 +43,8 @@ function App() {
       dispatch(productActions.updateStatus("success"));
     }
   }, [status, products, error, dispatch]);
+
+  ////////////////////////////////////////////////////////////////////////
 
   return (
     <>
