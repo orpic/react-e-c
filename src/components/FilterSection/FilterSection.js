@@ -11,6 +11,7 @@ const FilterSection = () => {
   const colorList = useSelector((state) => state.filter.color);
   const genderList = useSelector((state) => state.filter.gender);
   const typeList = useSelector((state) => state.filter.type);
+  const priceList = useSelector((state) => state.filter.price);
   // console.log(colorList, genderList, typeList);
 
   const onCheckColorChangeHandler = (event) => {
@@ -40,6 +41,15 @@ const FilterSection = () => {
     );
   };
 
+  const onCheckPriceChangeHandler = (event) => {
+    dispatch(
+      filterActions.togglePriceFliter({
+        value: event.target.value,
+        checkState: event.target.checked,
+      })
+    );
+  };
+
   return (
     <>
       <div className={classes.filterArea}>
@@ -59,6 +69,11 @@ const FilterSection = () => {
             subHead={"type"}
             getList={typeList}
             onCheckCallback={onCheckTypeChangeHandler}
+          />
+          <FilterSubHead
+            subHead={"price"}
+            getList={priceList}
+            onCheckCallback={onCheckPriceChangeHandler}
           />
         </div>
       </div>

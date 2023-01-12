@@ -51,6 +51,20 @@ const initState = {
       checkState: false,
     },
   ],
+  price: [
+    {
+      value: "0 - Rs250",
+      checkState: false,
+    },
+    {
+      value: "Rs251 - Rs450",
+      checkState: false,
+    },
+    {
+      value: "Above Rs450",
+      checkState: false,
+    },
+  ],
 };
 
 const filterSlice = createSlice({
@@ -79,6 +93,14 @@ const filterSlice = createSlice({
       state.type.forEach((type) => {
         if (type.value === action.payload.value) {
           type.checkState = action.payload.checkState;
+        }
+      });
+    },
+
+    togglePriceFliter(state, action) {
+      state.price.forEach((price) => {
+        if (price.value === action.payload.value) {
+          price.checkState = action.payload.checkState;
         }
       });
     },
