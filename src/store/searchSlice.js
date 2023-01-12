@@ -9,7 +9,7 @@ const searchSlice = createSlice({
     addSearchTerms(state, action) {
       state.terms = action.payload;
     },
-    clearSearchTerms() {
+    clearSearchTerms(state) {
       state.terms = [];
     },
   },
