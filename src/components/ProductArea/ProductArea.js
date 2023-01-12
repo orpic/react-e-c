@@ -7,16 +7,21 @@ import { useSelector } from "react-redux";
 import { useSearchProducts } from "../../hooks";
 
 const ProductArea = () => {
+  //Getting Product current status
   const status = useSelector((state) => state.product.status);
+
+  //Geting product list
   const productsList = useSelector((state) => state.product.products);
-  const searchList = useSelector((state) => state.search.terms);
+
+  //Getting search terms from search bar via store
+  const searchTermList = useSelector((state) => state.search.terms);
+
+  //Using search hook to filter the productList acc to search terms
   const { searchResults, setSearchTerms } = useSearchProducts(productsList);
 
   useEffect(() => {
-    setSearchTerms(searchList);
-
-    return () => {};
-  }, [searchList]);
+    setSearchTerms(searchTermList);
+  }, [searchTermList, setSearchTerms]);
 
   ///////////////////////////////////
   // different states and fallback
@@ -43,22 +48,6 @@ const ProductArea = () => {
   }
   // fallback complete
   ///////////////////////////////////
-
-  const searchText = ["polo"];
-  console.log(searchText);
-  const searchProducts = (productsList, searchText) => {
-    return productsList.filter((product) =>
-      searchText.every(
-        (text) =>
-          product.name.toLowerCase().includes(text.toLowerCase()) ||
-          product.color.toLowerCase().includes(text.toLowerCase()) ||
-          product.type.toLowerCase().includes(text.toLowerCase())
-      )
-    );
-  };
-
-  // const searchResult = searchProducts(products, searchText);
-  // console.log(searchResult);
 
   return (
     <div className={classes.area}>

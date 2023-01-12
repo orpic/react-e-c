@@ -20,8 +20,6 @@ function App() {
 
   useEffect(() => {
     sendRequest();
-
-    return () => {};
   }, [sendRequest]);
 
   // four status for product store - / pending / error / empty / success /

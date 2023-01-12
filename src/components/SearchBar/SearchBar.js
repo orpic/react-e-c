@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-// eslint-disable-next-line
+import { useDispatch } from "react-redux";
 import classes from "./SearchBar.module.css";
+import { searchActions } from "../../store/searchSlice";
 
-const SearchBar = ({ onDataChange }) => {
-  // controlled input field
+const SearchBar = () => {
+  const dispatch = useDispatch();
+  // local - controlled input field
   const [searchText, setSearchText] = useState("");
 
-  //clear button - cleans the input label
+  //clear button - cleans the search terms
   const clearButtonHandler = () => {
+    //local input clean
     setSearchText("");
-    onDataChange([]);
+    //store clean
+    dispatch(searchActions.clearSearchTerms());
   };
 
-  // Input Change Listener
+  // input change listener + controlled input
   const textInputHandler = (event) => {
     const textValue = event.target.value;
     setSearchText(textValue);
@@ -21,8 +25,8 @@ const SearchBar = ({ onDataChange }) => {
   //splitting into free text and sending data
   const searchHandler = () => {
     const searchList = searchText.split(" ");
-    // console.log(searchList);
-    onDataChange(searchList);
+
+    dispatch(searchActions.addSearchTerms(searchList));
   };
 
   return (
