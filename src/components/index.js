@@ -6,3 +6,4 @@ export { default as ProductArea } from "./ProductArea/ProductArea";
 export { default as ProductCard } from "./ProductCard/ProductCard";
 export { default as CartItem } from "./CartItem/CartItem";
 export { default as LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
+export { default as FilterSubHead } from "./FilterSubHead/FilterSubHead";
