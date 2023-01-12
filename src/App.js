@@ -11,7 +11,7 @@ import { productActions } from "./store/productSlice";
 
 function App() {
   ////////////////////////////////////////////////////////////////////////
-  // getting products data from
+  // getting products data from http hook
   const dispatch = useDispatch();
   const {
     sendRequest,
