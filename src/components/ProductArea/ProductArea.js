@@ -9,13 +9,10 @@ import { useSearchProducts } from "../../hooks";
 const ProductArea = () => {
   //Getting Product current status
   const status = useSelector((state) => state.product.status);
-
   //Geting product list
   const productsList = useSelector((state) => state.product.products);
-
   //Getting search terms from search bar via store
   const searchTermList = useSelector((state) => state.search.terms);
-
   //Using search hook to filter the productList acc to search terms
   const { searchResults, setSearchTerms } = useSearchProducts(productsList);
 
@@ -24,7 +21,7 @@ const ProductArea = () => {
   }, [searchTermList, setSearchTerms]);
 
   ///////////////////////////////////
-  // different states and fallback
+  // different states and fallback ui
   if (status === "pending") {
     return (
       <div className={classes.area}>
@@ -46,7 +43,7 @@ const ProductArea = () => {
       </div>
     );
   }
-  // fallback complete
+  // fallback ui complete
   ///////////////////////////////////
 
   return (
