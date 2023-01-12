@@ -18,15 +18,16 @@ function useFilterProducts(initialCheckboxState, productsList) {
     setFilteredProducts(
       productsList.filter((product) => {
         return (
-          (color.length === 0 || color.includes(product.color)) &&
-          (gender.length === 0 || gender.includes(product.gender)) &&
-          (type.length === 0 || type.includes(product.type))
+          (color.length === 0 || color.includes(product.color.toLowerCase())) &&
+          (gender.length === 0 ||
+            gender.includes(product.gender.toLowerCase())) &&
+          (type.length === 0 || type.includes(product.type.toLowerCase()))
         );
       })
     );
   }, [checkboxState, productsList]);
 
-  return { filteredProducts, checkboxState, setCheckboxState };
+  return { filteredProducts, setCheckboxState };
 }
 
 export default useFilterProducts;

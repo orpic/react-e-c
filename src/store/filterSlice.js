@@ -3,7 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const initState = {
   color: [
     {
+      value: "grey",
+      checkState: false,
+    },
+    {
+      value: "purple",
+      checkState: false,
+    },
+    {
       value: "red",
+      checkState: false,
+    },
+    {
+      value: "white",
       checkState: false,
     },
     {
@@ -17,11 +29,11 @@ const initState = {
   ],
   gender: [
     {
-      value: "male",
+      value: "men",
       checkState: false,
     },
     {
-      value: "female",
+      value: "women",
       checkState: false,
     },
   ],

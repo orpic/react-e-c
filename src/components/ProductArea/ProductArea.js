@@ -4,7 +4,7 @@ import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
 import { useSelector } from "react-redux";
-import { useSearchProducts } from "../../hooks";
+import { useFilterProducts, useSearchProducts } from "../../hooks";
 
 const ProductArea = () => {
   //Getting Product current status
@@ -13,14 +13,24 @@ const ProductArea = () => {
   const productsList = useSelector((state) => state.product.products);
   //Getting search terms from search bar via store
   const searchTermList = useSelector((state) => state.search.terms);
-  //Using search hook to filter the productList acc to search terms
+  //Using search hook search in free text in productList acc to search terms
   const { searchResults, setSearchTerms } = useSearchProducts(productsList);
 
-  console.log(useSelector((state) => state.filter));
+  //Getting checkBoxList
+  const checkBoxList = useSelector((state) => state.filter);
+  //Using filter hook to filter
+  const { filteredProducts, setCheckboxState } = useFilterProducts(
+    checkBoxList,
+    searchResults
+  );
 
   useEffect(() => {
     setSearchTerms(searchTermList);
   }, [searchTermList, setSearchTerms]);
+
+  useEffect(() => {
+    setCheckboxState(checkBoxList);
+  }, [checkBoxList, setCheckboxState]);
 
   ///////////////////////////////////
   // different states and fallback ui
@@ -50,7 +60,7 @@ const ProductArea = () => {
 
   return (
     <div className={classes.area}>
-      {searchResults.map((eachProduct) => (
+      {filteredProducts.map((eachProduct) => (
         <ProductCard
           key={eachProduct.id}
           productImage={eachProduct.imageURL}
