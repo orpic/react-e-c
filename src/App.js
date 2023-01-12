@@ -38,7 +38,7 @@ function App() {
     if (status === "completed" && (!products || products.length === 0)) {
       dispatch(productActions.updateStatus("empty"));
     }
-    if (status === "completed" && products && products.length > 0) {
+    if (status === "completed" && products.length > 0) {
       dispatch(productActions.addProductsToStore(products));
       dispatch(productActions.updateStatus("success"));
     }
