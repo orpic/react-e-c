@@ -5,3 +5,9 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.para {
+  font-size: 3rem;
+  color: #eb984e;
+  font-weight: 700;
+}

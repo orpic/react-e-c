@@ -35,14 +35,14 @@ const ProductArea = () => {
   if (status === "error") {
     return (
       <div className={classes.area}>
-        <p>An error occurred</p>
+        <p className={classes.para}>An error occurred</p>
       </div>
     );
   }
   if (status === "empty") {
     return (
       <div className={classes.area}>
-        <p>No Data Found</p>
+        <p className={classes.para}>No Data Found</p>
       </div>
     );
   }
