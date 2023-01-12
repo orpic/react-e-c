@@ -2,25 +2,25 @@ import React, { useState } from "react";
 import classes from "./Products.module.css";
 import { FilterSection, ProductArea, SearchBar } from "../../components";
 
-import { useEffect } from "react";
-import { getProducts } from "../../lib/api";
-import useHttp from "../../hooks/use-http";
+// import { useEffect } from "react";
+// import { getProducts } from "../../lib/api";
+// import useHttp from "../../hooks/use-http";
 
 const Products = () => {
-  //////////////////////////////////
-  //Product Fetching
-  const {
-    sendRequest,
-    status,
-    data: products,
-    error,
-  } = useHttp(getProducts, true);
+  // //////////////////////////////////
+  // //Product Fetching
+  // const {
+  //   sendRequest,
+  //   status,
+  //   data: products,
+  //   error,
+  // } = useHttp(getProducts, true);
 
-  useEffect(() => {
-    sendRequest();
-  }, [sendRequest]);
-  console.log(status);
-  console.log(products);
+  // useEffect(() => {
+  //   sendRequest();
+  // }, [sendRequest]);
+  // console.log(status);
+  // console.log(products);
 
   //////////////////////////////////
   // Search & filter terms (lifting state up)
@@ -44,12 +44,7 @@ const Products = () => {
           <FilterSection />
         </div>
         <div className={classes.productsPosition}>
-          <ProductArea
-            searchText={searchData}
-            status={status}
-            products={products}
-            error={error}
-          />
+          <ProductArea />
         </div>
       </main>
     </>

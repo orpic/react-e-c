@@ -3,8 +3,11 @@ import React from "react";
 import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
+import { useSelector } from "react-redux";
 
-const ProductArea = ({ searchText, status, products, error }) => {
+const ProductArea = () => {
+  const products = useSelector((state) => state.product.products);
+  const status = useSelector((state) => state.product.status);
   ///////////////////////////////////
   // different states and fallback
   if (status === "pending") {
@@ -14,14 +17,14 @@ const ProductArea = ({ searchText, status, products, error }) => {
       </div>
     );
   }
-  if (error) {
+  if (status === "error") {
     return (
       <div className={classes.area}>
-        <p>{error}</p>
+        <p>An error occurred</p>
       </div>
     );
   }
-  if (status === "completed" && (!products || products.length === 0)) {
+  if (status === "empty") {
     return (
       <div className={classes.area}>
         <p>No Data Found</p>
@@ -30,7 +33,7 @@ const ProductArea = ({ searchText, status, products, error }) => {
   }
   // fallback complete
   ///////////////////////////////////
-  // const searchText = ["polo", "green"];
+  const searchText = ["polo"];
   console.log(searchText);
   const searchProducts = (productsList, searchText) => {
     return productsList.filter((product) =>
