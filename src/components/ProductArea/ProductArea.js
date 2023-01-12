@@ -16,6 +16,8 @@ const ProductArea = () => {
   //Using search hook to filter the productList acc to search terms
   const { searchResults, setSearchTerms } = useSearchProducts(productsList);
 
+  console.log(useSelector((state) => state.filter));
+
   useEffect(() => {
     setSearchTerms(searchTermList);
   }, [searchTermList, setSearchTerms]);
