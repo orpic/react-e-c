@@ -4,6 +4,7 @@ const searchSlice = createSlice({
   name: "search",
   initialState: {
     terms: [],
+    inputValue: "",
   },
   reducers: {
     addSearchTerms(state, action) {
@@ -11,6 +12,12 @@ const searchSlice = createSlice({
     },
     clearSearchTerms(state) {
       state.terms = [];
+    },
+    updateInputValue(state, action) {
+      state.inputValue = action.payload;
+    },
+    clearInputValue(state) {
+      state.inputValue = "";
     },
   },
 });
