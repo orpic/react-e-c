@@ -4,7 +4,9 @@ import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
 
-const ProductArea = ({ status, products, error }) => {
+const ProductArea = ({ searchText, status, products, error }) => {
+  ///////////////////////////////////
+  // different states and fallback
   if (status === "pending") {
     return (
       <div className={classes.area}>
@@ -26,7 +28,10 @@ const ProductArea = ({ status, products, error }) => {
       </div>
     );
   }
-  const searchText = ["polo", "green"];
+  // fallback complete
+  ///////////////////////////////////
+  // const searchText = ["polo", "green"];
+  console.log(searchText);
   const searchProducts = (productsList, searchText) => {
     return productsList.filter((product) =>
       searchText.every(

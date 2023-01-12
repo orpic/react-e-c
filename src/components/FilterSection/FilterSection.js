@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line
 import classes from "./FilterSection.module.css";
 
-const FilterSection = () => {
+const FilterSection = ({ onDataChange }) => {
   const filterList = [
     {
       title: "color",
