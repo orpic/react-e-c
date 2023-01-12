@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 // eslint-disable-next-line
 import classes from "./ProductArea.module.css";
 
 import { LoadingSpinner, ProductCard } from "../../components";
 import { useSelector } from "react-redux";
+import { useSearchProducts } from "../../hooks";
 
 const ProductArea = () => {
-  const products = useSelector((state) => state.product.products);
   const status = useSelector((state) => state.product.status);
+  const productsList = useSelector((state) => state.product.products);
+  const searchList = useSelector((state) => state.search.terms);
+  const { searchResults, setSearchTerms } = useSearchProducts(productsList);
+
+  useEffect(() => {
+    setSearchTerms(searchList);
+
+    return () => {};
+  }, [searchList]);
+
   ///////////////////////////////////
   // different states and fallback
   if (status === "pending") {
@@ -33,6 +43,7 @@ const ProductArea = () => {
   }
   // fallback complete
   ///////////////////////////////////
+
   const searchText = ["polo"];
   console.log(searchText);
   const searchProducts = (productsList, searchText) => {
@@ -46,12 +57,12 @@ const ProductArea = () => {
     );
   };
 
-  const searchResult = searchProducts(products, searchText);
-  console.log(searchResult);
+  // const searchResult = searchProducts(products, searchText);
+  // console.log(searchResult);
 
   return (
     <div className={classes.area}>
-      {searchResult.map((eachProduct) => (
+      {searchResults.map((eachProduct) => (
         <ProductCard
           key={eachProduct.id}
           productImage={eachProduct.imageURL}

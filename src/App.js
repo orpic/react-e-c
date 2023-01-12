@@ -4,7 +4,7 @@ import { Cart, cartPath, Products, productsPath } from "./pages";
 
 import { getProducts } from "./lib/api";
 import { useEffect } from "react";
-import useHttp from "./hooks/use-http";
+import { useHttp } from "./hooks";
 
 import { useDispatch } from "react-redux";
 import { productActions } from "./store/productSlice";
@@ -24,13 +24,8 @@ function App() {
     return () => {};
   }, [sendRequest]);
 
-  // console.log(status);
-  // console.log(products);
-
   // four status for product store - / pending / error / empty / success /
   useEffect(() => {
-    // console.log(status);
-    // console.log(products);
     if (status === "pending") {
       dispatch(productActions.updateStatus("pending"));
     }
@@ -44,15 +39,9 @@ function App() {
     }
     if (status === "completed" && products && products.length > 0) {
       dispatch(productActions.addProductsToStore(products));
-    }
-    if (status === "completed") {
       dispatch(productActions.updateStatus("success"));
-      // console.log("App.js Product cycle");
     }
-    // re-run whenever status or products change
   }, [status, products, error, dispatch]);
-  // dispatch(productActions.updateStatus("success"));
-  // dispatch(productActions.addProductsToStore(products));
 
   return (
     <>
