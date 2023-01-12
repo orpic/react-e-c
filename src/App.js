@@ -54,11 +54,11 @@ function App() {
             <Redirect to={productsPath} />
           </Route>
 
-          <Route path={productsPath} exact>
+          <Route path={productsPath}>
             <Products />
           </Route>
 
-          <Route path={cartPath} exact>
+          <Route path={cartPath}>
             <Cart />
           </Route>
         </Switch>
