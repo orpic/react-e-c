@@ -1,7 +1,26 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cartSlice";
 // eslint-disable-next-line
 import classes from "./ProductCard.module.css";
-const ProductCard = ({ productImage, productName, productPrice }) => {
+const ProductCard = ({
+  id,
+  quantity,
+  productImage,
+  productName,
+  productPrice,
+}) => {
+  const dispatch = useDispatch();
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: id,
+        imageUrl: productImage,
+        name: productName,
+        price: productPrice,
+      })
+    );
+  };
   return (
     <>
       <div className={classes.cardContainer}>
@@ -19,7 +38,9 @@ const ProductCard = ({ productImage, productName, productPrice }) => {
               {productPrice}
             </p>
 
-            <button className={classes.btn}>Add to Cart</button>
+            <button onClick={addToCartHandler} className={classes.btn}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

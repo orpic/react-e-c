@@ -1,6 +1,5 @@
 import React from "react";
 import { CartItem } from "../../components";
-// eslint-disable-next-line
 import classes from "./Cart.module.css";
 
 const Cart = () => {

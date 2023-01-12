@@ -63,6 +63,8 @@ const ProductArea = () => {
       {filteredProducts.map((eachProduct) => (
         <ProductCard
           key={eachProduct.id}
+          id={eachProduct.id}
+          quantity={eachProduct.quantity}
           productImage={eachProduct.imageURL}
           productName={eachProduct.name}
           productPrice={eachProduct.price}
