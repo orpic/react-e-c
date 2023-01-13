@@ -39,11 +39,13 @@
 }
 
 .title {
+  text-align: center;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
 .message {
+  text-align: center;
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }

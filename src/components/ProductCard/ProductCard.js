@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import classes from "./ProductCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
+
 import { cartActions } from "../../store/cartSlice";
 import { DialogBox } from "../../components";
-// eslint-disable-next-line
-import classes from "./ProductCard.module.css";
 const ProductCard = ({
   id,
   quantity,
@@ -12,19 +12,21 @@ const ProductCard = ({
   productPrice,
 }) => {
   const dispatch = useDispatch();
+
+  //dialog control and message
   const [isOpen, setIsOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState({
     title: "",
     message: "",
   });
+
+  // quantity left for us to add
   const [quantityLeft, setQuantityLeft] = useState(0);
+  // setting cart quantity (cart may not have item yet)
   const [cartQuantity, setCartQuantity] = useState(0);
-  // const products = useSelector((state) => state.product.products);
   const cart = useSelector((state) => state.cart.items);
 
   useEffect(() => {
-    // const product = products.find((item) => item.id === id);
-
     const cartItem = cart.find((item) => item.id === id);
     // console.log(cartItem);
     if (cartItem) {
@@ -36,9 +38,38 @@ const ProductCard = ({
     }
   }, [quantity, cart, id]);
 
+  // increase already present item in cart
+  const increaseCartHandler = () => {
+    if (quantityLeft > 0) {
+      dispatch(
+        cartActions.addItemToCart({
+          id: id,
+          imageUrl: productImage,
+          name: productName,
+          price: productPrice,
+        })
+      );
+    } else {
+      //open the diaolog
+      setIsOpen(true);
+      //dialog message
+      setDialogMessage({
+        title: "Limited Stock",
+        message: `We only have ${quantity} pieces in our store`,
+      });
+    }
+  };
+
+  //remove single piece from cart
+  const decreaseCartHandler = () => {
+    dispatch(cartActions.removeItemFromCart(id));
+  };
+
+  // adding for first time
   const addToCartHandler = () => {
-    // console.log("clicked");
-    console.log(quantityLeft, cartQuantity);
+    // console.log(quantityLeft, cartQuantity);
+
+    // if adding for first time
     if (quantityLeft > 0 && cartQuantity === 0) {
       // console.log(" > 0 , === 0 ");
       dispatch(
@@ -50,12 +81,8 @@ const ProductCard = ({
         })
       );
     }
-    if (quantityLeft > 0 && cartQuantity > 0) {
-      // console.log(" > 0 , > 0 ");
-      //dialog box
-      setIsOpen(true);
-      setDialogMessage({ title: "Want more?", message: "Add on Cart page" });
-    }
+
+    // if product quantity is 0
     if (quantityLeft === 0) {
       // console.log(" === 0 ,  -- ");
       //dialog box
@@ -66,6 +93,7 @@ const ProductCard = ({
       });
     }
   };
+
   return (
     <>
       <div className={classes.cardContainer}>
@@ -95,8 +123,13 @@ const ProductCard = ({
             )}
             {cartQuantity > 0 && (
               <div className={classes.buttonsArea}>
-                <button className={classes.btn}>-</button>
-                <button className={classes.btn}>+</button>
+                <button onClick={decreaseCartHandler} className={classes.btn}>
+                  -
+                </button>
+                <p>{cartQuantity}</p>
+                <button onClick={increaseCartHandler} className={classes.btn}>
+                  +
+                </button>
               </div>
             )}
           </div>
