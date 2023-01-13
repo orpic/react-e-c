@@ -48,7 +48,7 @@ const ProductArea = () => {
       </div>
     );
   }
-  if (status === "empty") {
+  if (status === "empty" || filteredProducts.length === 0) {
     return (
       <div className={classes.area}>
         <p className={classes.para}>No Data Found</p>
