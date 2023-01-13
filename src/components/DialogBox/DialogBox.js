@@ -1,21 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 //eslint-disbale-next-line
 import classes from "./DialogBox.module.css";
 const DialogBox = ({ isOpen, setIsOpen, dialogMessage }) => {
-  useEffect(() => {
-    if (isOpen) {
-      const id = setTimeout(() => {
-        setIsOpen(false);
-      }, 5000);
-    }
-
-    return () => {
-      clearTimeout(id);
-    };
-  }, [isOpen, setIsOpen]);
-
   const closeDialogHandler = () => {
-    clearTimeout(id);
     setIsOpen(false);
   };
 

@@ -22,7 +22,7 @@ const ProductCard = ({
 
   // quantity left for us to add
   const [quantityLeft, setQuantityLeft] = useState(0);
-  // setting cart quantity (cart may not have item yet)
+  // for setting cart quantity (cart may not have item yet)
   const [cartQuantity, setCartQuantity] = useState(0);
   const cart = useSelector((state) => state.cart.items);
 
