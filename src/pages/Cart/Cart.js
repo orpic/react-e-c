@@ -5,6 +5,8 @@ import classes from "./Cart.module.css";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  // console.log(cartItems);
+
   return (
     <>
       <div className={classes.container}>
@@ -13,7 +15,15 @@ const Cart = () => {
           {cartItems.length === 0 && (
             <p className={classes.emptyPara}>Cart empty !</p>
           )}
-          <CartItem />
+          {cartItems.length > 0 &&
+            cartItems.map((eachItem) => (
+              <CartItem
+                key={eachItem.id}
+                name={eachItem.name}
+                price={eachItem.price}
+                quantity={eachItem.quantity}
+              />
+            ))}
         </div>
         {cartItems.length !== 0 && (
           <p className={classes.totalAmount}>
