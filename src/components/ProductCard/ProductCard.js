@@ -61,9 +61,6 @@ const ProductCard = ({
       dispatch(
         cartActions.addItemToCart({
           id: id,
-          imageUrl: productImage,
-          name: productName,
-          price: productPrice,
         })
       );
     } else {
