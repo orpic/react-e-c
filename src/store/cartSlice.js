@@ -16,9 +16,9 @@ const cartSlice = createSlice({
       const existingItem = state.items.find((item) => item.id === newItem.id);
       //
       state.totalQuantity++;
-      state.totalAmount = state.totalAmount + newItem.price;
       //
       if (!existingItem) {
+        state.totalAmount = state.totalAmount + newItem.price;
         state.items.push({
           id: newItem.id,
           imageUrl: newItem.imageUrl,
@@ -30,6 +30,8 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity++;
         existingItem.totalPrice = existingItem.totalPrice + existingItem.price;
+        // for when price is not passed down
+        state.totalAmount = state.totalAmount + existingItem.price;
       }
     },
     removeItemFromCart(state, action) {
@@ -54,8 +56,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       //
-      state.totalAmount =
-        state.totalAmount - existingItem.totalPrice * existingItem.quantity;
+      state.totalAmount = state.totalAmount - existingItem.totalPrice;
       state.totalQuantity = state.totalQuantity - existingItem.quantity;
       state.items = state.items.filter((item) => item.id !== id);
     },

@@ -4,7 +4,8 @@ import { CartItem } from "../../components";
 import classes from "./Cart.module.css";
 
 const Cart = () => {
-  const cartTotalAmount = useSelector((state) => state.totalAmount);
+  const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
+  // console.log(cartTotalAmount);
   const cartItems = useSelector((state) => state.cart.items);
 
   return (
