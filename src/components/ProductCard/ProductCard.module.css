@@ -1,10 +1,12 @@
 .cardContainer {
+  position: relative;
   height: 250px;
   width: 275px;
   background-color: #fae5d3;
   padding: 1rem;
   /* text-align: center; */
   border-radius: 9px;
+  overflow: visible;
 }
 
 .productImage {

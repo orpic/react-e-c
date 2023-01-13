@@ -1,0 +1,66 @@
+.dialogBox {
+  position: absolute;
+  /* top: 11px; */
+  /* left: 50%; */
+  /* position: absolute;*/
+  /* top: 0; */
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  border-radius: 9px;
+  z-index: 99;
+  margin: 0.6rem;
+  transition: all 0.3s;
+}
+
+.dialogBox.open {
+  /* display: block; */
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.dialogContent {
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fdf2e9;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  z-index: 100;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: inset 0 0 0 3px #fdf2e9;
+  border-radius: 3px;
+  font-size: 1.8rem;
+  background-color: transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fdf2e9;
+  color: #000;
+}
