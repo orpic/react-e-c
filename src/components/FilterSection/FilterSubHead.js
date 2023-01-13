@@ -4,7 +4,7 @@ import classes from "./FilterSubHead.module.css";
 
 const FilterSubHead = ({ subHead, getList, onCheckCallback }) => {
   return (
-    <>
+    <div className={classes.subHead}>
       <p className={classes.filterSubHeading}>{subHead}</p>
       <div className={classes.leftMargin}>
         {getList.map((eachItem) => (
@@ -20,7 +20,7 @@ const FilterSubHead = ({ subHead, getList, onCheckCallback }) => {
           </label>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

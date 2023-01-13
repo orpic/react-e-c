@@ -2,7 +2,7 @@
   padding: 1rem;
   display: grid;
   height: calc(100vh - 65px);
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-rows: 64px 1fr;
   /* display: grid;
   gap: 1rem;
@@ -26,4 +26,19 @@
 
 .productsPosition::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+
+@media (max-width: 1200px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6.4rem 20rem 1fr;
+  }
+
+  .searchPosition {
+    grid-column: unset;
+  }
+
+  .filterPosition {
+    grid-row: unset;
+  }
 }

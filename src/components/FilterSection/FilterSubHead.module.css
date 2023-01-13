@@ -1,3 +1,6 @@
+.subHead {
+}
+
 .filterSubHeading {
   font-size: 2rem;
   margin: 1rem;
@@ -10,6 +13,20 @@
 
 .leftMargin label {
   text-transform: capitalize;
+}
+
+@media (max-width: 1200px) {
+  .subHead {
+    display: inline-flex;
+  }
+  .filterSubHeading {
+    margin: 0;
+  }
+
+  .leftMargin {
+    margin-left: 1rem;
+    margin-right: 3rem;
+  }
 }
 
 /* ///////////////////////////////////////////////////////////////////// */

@@ -18,13 +18,33 @@
 
 .move {
   /* border: 1px solid #000; */
-  width: max-content;
+  /* width: max-content; */
 }
 
 .filterArea::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
+  /*  Safari and Chrome */
 }
 
 .filterArea h2 {
   font-size: 2.4rem;
+}
+
+@media (max-width: 1200px) {
+  .move {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+  }
+
+  .filterArea {
+    padding: unset;
+  }
+
+  .filterArea h2 {
+    display: inline-block;
+    margin-right: 2rem;
+    transform: translate(0, 290%) rotate(-90deg);
+  }
 }

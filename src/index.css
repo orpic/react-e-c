@@ -75,3 +75,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
