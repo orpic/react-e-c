@@ -44,8 +44,6 @@ function App() {
     }
   }, [status, products, error, dispatch]);
 
-  ////////////////////////////////////////////////////////////////////////
-
   return (
     <>
       <Layout>
