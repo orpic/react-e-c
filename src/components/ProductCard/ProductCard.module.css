@@ -45,18 +45,38 @@
 .btn:link,
 .btn:visited {
   background-color: transparent;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: inherit;
-  padding: 0.6rem;
+  padding: 0.6rem 1rem;
   box-shadow: inset 0 0 0 2px #eb984e;
-  border-radius: 9px;
+  border-radius: 6px;
   cursor: pointer;
   /* margin: 1rem; */
   transition: all 0.3s;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover,
 .btn:active {
   background-color: #eb984e;
   color: #fff;
+}
+
+.buttonsArea {
+  height: 50px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 5.2rem;
+  justify-content: space-between;
+}
+
+.buttonsArea div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
 }

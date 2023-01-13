@@ -26,7 +26,7 @@ const ProductCard = ({
     // const product = products.find((item) => item.id === id);
 
     const cartItem = cart.find((item) => item.id === id);
-    console.log(cartItem);
+    // console.log(cartItem);
     if (cartItem) {
       setQuantityLeft(quantity - cartItem.quantity);
       setCartQuantity(cartItem.quantity);
@@ -37,10 +37,10 @@ const ProductCard = ({
   }, [quantity, cart, id]);
 
   const addToCartHandler = () => {
-    console.log("clicked");
+    // console.log("clicked");
     console.log(quantityLeft, cartQuantity);
     if (quantityLeft > 0 && cartQuantity === 0) {
-      console.log(" > 0 , === 0 ");
+      // console.log(" > 0 , === 0 ");
       dispatch(
         cartActions.addItemToCart({
           id: id,
@@ -51,13 +51,13 @@ const ProductCard = ({
       );
     }
     if (quantityLeft > 0 && cartQuantity > 0) {
-      console.log(" > 0 , > 0 ");
+      // console.log(" > 0 , > 0 ");
       //dialog box
       setIsOpen(true);
       setDialogMessage({ title: "Want more?", message: "Add on Cart page" });
     }
     if (quantityLeft === 0) {
-      console.log(" === 0 ,  -- ");
+      // console.log(" === 0 ,  -- ");
       //dialog box
       setIsOpen(true);
       setDialogMessage({
@@ -88,9 +88,17 @@ const ProductCard = ({
               {productPrice}
             </p>
 
-            <button onClick={addToCartHandler} className={classes.btn}>
-              Add to Cart
-            </button>
+            {cartQuantity === 0 && (
+              <button onClick={addToCartHandler} className={classes.btn}>
+                Add to Cart
+              </button>
+            )}
+            {cartQuantity > 0 && (
+              <div className={classes.buttonsArea}>
+                <button className={classes.btn}>-</button>
+                <button className={classes.btn}>+</button>
+              </div>
+            )}
           </div>
         </div>
       </div>
