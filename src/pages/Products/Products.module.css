@@ -4,8 +4,9 @@
   height: calc(100vh - 65px);
   grid-template-columns: 250px 1fr;
   grid-template-rows: 64px 1fr;
-  /* display: grid;
+  /* display: grid; */
   gap: 1rem;
+  /*
   grid-template-columns: 400px 1fr;
   grid-template-rows: 6.4rem 1fr; */
 }
@@ -14,8 +15,31 @@
   grid-column: 2/-1;
 }
 
+.filterOptionButton {
+  /* margin-top: 0.2rem;
+  margin-left: 1rem; */
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: transparent;
+  color: #eb984e;
+  border: 2px solid #eb984e;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  display: none;
+}
+
+.filterOptionButton:hover {
+  color: #fff;
+  background-color: #eb984e;
+}
+
 .filterPosition {
   grid-row: 1/-1;
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: center; */
 }
 
 .productsPosition {
@@ -28,17 +52,54 @@
   display: none; /* Safari and Chrome */
 }
 
+/* Media Query */
 @media (max-width: 1200px) {
   .main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 6.4rem 20rem 1fr;
+    grid-template-columns: 1fr 6.4rem;
+    grid-template-rows: 6.4rem 1fr;
+    position: relative;
   }
 
   .searchPosition {
     grid-column: unset;
   }
 
+  .filterOptionButton {
+    display: block;
+    /* margin-left: 1rem; */
+    /* grid-column: 2/-1; */
+  }
   .filterPosition {
+    position: absolute;
+    top: 6.8rem;
+    left: 0;
+    right: 0;
     grid-row: unset;
+
+    width: max-content;
+    margin: 1rem auto;
+    /* z-index: 9; */
+
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+
+    transition: all 0.3s;
+  }
+
+  .filterPosition.visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  /* .hidden{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  } */
+
+  .productsPosition {
+    grid-column: 1/-1;
   }
 }

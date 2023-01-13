@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.filterArea:last-child {
+  margin-right: 0;
+}
+
 /* .move {
    border: 1px solid #000; 
    width: max-content; 
@@ -37,10 +41,13 @@
     align-items: flex-start;
     justify-content: center;
     /* flex-wrap: wrap; */
+    padding: 1rem;
   }
 
   .filterArea {
     padding: unset;
+    overflow: unset;
+    background-color: #fff;
   }
 
   .filterArea h2 {
