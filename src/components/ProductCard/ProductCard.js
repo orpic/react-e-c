@@ -12,7 +12,7 @@ const ProductCard = ({
   productPrice,
 }) => {
   const dispatch = useDispatch();
-
+  ///////////////////////////////////////
   //dialog control and message
   const [isOpen, setIsOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState({
@@ -26,6 +26,22 @@ const ProductCard = ({
   const [cartQuantity, setCartQuantity] = useState(0);
   const cart = useSelector((state) => state.cart.items);
 
+  ///////////////////////////////////////
+  // removing the dialog after a timeout
+  useEffect(() => {
+    const tim = setTimeout(() => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    }, 4500);
+
+    return () => {
+      clearTimeout(tim);
+    };
+  }, [isOpen, setIsOpen]);
+
+  ///////////////////////////////////////
+  // setting values
   useEffect(() => {
     const cartItem = cart.find((item) => item.id === id);
     // console.log(cartItem);
@@ -38,6 +54,7 @@ const ProductCard = ({
     }
   }, [quantity, cart, id]);
 
+  ///////////////////////////////////////
   // increase already present item in cart
   const increaseCartHandler = () => {
     if (quantityLeft > 0) {
@@ -60,6 +77,7 @@ const ProductCard = ({
     }
   };
 
+  ///////////////////////////////////////
   //remove single piece from cart
   const decreaseCartHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));

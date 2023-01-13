@@ -1,13 +1,13 @@
 import React from "react";
-
-// eslint-disable-next-line
 import classes from "./MainNavigation.module.css";
 import { NavLink } from "react-router-dom";
 
 //importing path
 import { cartPath, productsPath } from "../../pages";
+import { useSelector } from "react-redux";
 
 const MainNavigation = () => {
+  const totalQuant = useSelector((state) => state.cart.totalQuantity);
   const navLinkData = [
     {
       toLink: productsPath,
@@ -17,7 +17,7 @@ const MainNavigation = () => {
     {
       toLink: cartPath,
       linkText: "Cart",
-      addInfo: "",
+      addInfo: totalQuant,
     },
   ];
   return (
@@ -30,7 +30,10 @@ const MainNavigation = () => {
           {navLinkData.map((eachLink) => (
             <li key={eachLink.linkText}>
               <NavLink to={eachLink.toLink} activeClassName={classes.active}>
-                {eachLink.linkText}
+                {eachLink.linkText}{" "}
+                <span className={classes[eachLink.linkText]}>
+                  {eachLink.addInfo}
+                </span>
               </NavLink>
             </li>
           ))}
