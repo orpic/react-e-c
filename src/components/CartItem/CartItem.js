@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line
 import classes from "./CartItem.module.css";
 
-const CartItem = () => {
+const CartItem = ({ name, price, quantity }) => {
   return (
     <>
       <div className={classes.container}>
@@ -14,15 +14,16 @@ const CartItem = () => {
           />
 
           <div className={classes.namePrice}>
-            <p>Product Name</p>
-            <p>₹450</p>
+            <p>{name}</p>
+            <p>₹{price}</p>
           </div>
         </div>
         <div className={classes.quantityPrice}>
           <p>
-            <span>x</span>3
+            <span>x</span>
+            {quantity}
           </p>
-          <p>₹1350</p>
+          <p>₹{quantity * price}</p>
         </div>
 
         <div className={classes.buttonsArea}>

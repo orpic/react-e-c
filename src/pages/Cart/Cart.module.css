@@ -40,3 +40,10 @@
 .totalAmount span {
   font-weight: 700;
 }
+
+.emptyPara {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #eb984e;
+  font-weight: 600;
+}
