@@ -25,7 +25,6 @@ const ProductCard = ({
   // for setting cart quantity (cart may not have item yet)
   const [cartQuantity, setCartQuantity] = useState(0);
   const cart = useSelector((state) => state.cart.items);
-  console.log(cart);
 
   ///////////////////////////////////////
   // removing the dialog after a timeout
