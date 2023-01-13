@@ -72,7 +72,7 @@ const ProductCard = ({
       //dialog message
       setDialogMessage({
         title: "Limited Stock",
-        message: `We only have ${quantity} pieces in our store`,
+        message: `We only have ${quantity} piece(s) in our store`,
       });
     }
   };
