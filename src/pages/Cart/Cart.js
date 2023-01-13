@@ -4,8 +4,8 @@ import { CartItem } from "../../components";
 import classes from "./Cart.module.css";
 
 const Cart = () => {
+  const cartTotalAmount = useSelector((state) => state.totalAmount);
   const cartItems = useSelector((state) => state.cart.items);
-  // console.log(cartItems);
 
   return (
     <>
@@ -19,15 +19,16 @@ const Cart = () => {
             cartItems.map((eachItem) => (
               <CartItem
                 key={eachItem.id}
+                id={eachItem.id}
                 name={eachItem.name}
                 price={eachItem.price}
                 quantity={eachItem.quantity}
               />
             ))}
         </div>
-        {cartItems.length !== 0 && (
+        {cartItems.length > 0 && (
           <p className={classes.totalAmount}>
-            Total Amount: ₹<span>455</span>
+            Total Amount: ₹<span>{cartTotalAmount}</span>
           </p>
         )}
       </div>

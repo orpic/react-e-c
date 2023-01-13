@@ -54,7 +54,8 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       //
-      state.totalAmount = state.totalAmount - existingItem.totalPrice;
+      state.totalAmount =
+        state.totalAmount - existingItem.totalPrice * existingItem.quantity;
       state.totalQuantity = state.totalQuantity - existingItem.quantity;
       state.items = state.items.filter((item) => item.id !== id);
     },

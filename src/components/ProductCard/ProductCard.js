@@ -13,18 +13,19 @@ const ProductCard = ({
 }) => {
   const dispatch = useDispatch();
   ///////////////////////////////////////
-  //dialog control and message
+  // variable declare - dialog control and message
   const [isOpen, setIsOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState({
     title: "",
     message: "",
   });
 
-  // quantity left for us to add
+  // variable declare - quantity left for us to add
   const [quantityLeft, setQuantityLeft] = useState(0);
   // for setting cart quantity (cart may not have item yet)
   const [cartQuantity, setCartQuantity] = useState(0);
   const cart = useSelector((state) => state.cart.items);
+  console.log(cart);
 
   ///////////////////////////////////////
   // removing the dialog after a timeout
