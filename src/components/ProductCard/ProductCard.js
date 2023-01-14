@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { cartActions } from "../../store/cartSlice";
 import { DialogBox } from "../../components";
-import { useDialogMessage, useDialogTimeout } from "../../hooks";
+import {
+  useDialogMessage,
+  useDialogTimeout,
+  useIncreaseSingleItemInCart,
+} from "../../hooks";
 const ProductCard = ({
   id,
   quantity,
@@ -17,8 +21,14 @@ const ProductCard = ({
 
   const [quantityLeft, setQuantityLeft] = useState(0);
   const [cartQuantity, setCartQuantity] = useState(0);
+
   const [isDialogOpen, setIsDialogOpen] = useDialogTimeout();
   const [dialogMessage, setDialogMessage] = useDialogMessage();
+
+  const { increaseCartItem } = useIncreaseSingleItemInCart(
+    setIsDialogOpen,
+    setDialogMessage
+  );
 
   useEffect(() => {
     const cartItem = cart.find((item) => item.id === id);
@@ -31,29 +41,14 @@ const ProductCard = ({
     }
   }, [quantity, cart, id]);
 
-  // increase single piece in cart
   const increaseCartHandler = () => {
-    if (quantityLeft > 0) {
-      dispatch(
-        cartActions.addItemToCart({
-          id: id,
-        })
-      );
-    } else {
-      setIsDialogOpen(true);
-      setDialogMessage({
-        title: "Limited Stock",
-        message: `We only have ${quantity} piece(s) in our store`,
-      });
-    }
+    increaseCartItem(quantityLeft, id, quantity);
   };
 
-  // remove single piece in cart
   const decreaseCartHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));
   };
 
-  // first time product add to cart
   const addToCartHandler = () => {
     if (quantityLeft > 0 && cartQuantity === 0) {
       dispatch(
