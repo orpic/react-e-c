@@ -1,8 +1,7 @@
 import React from "react";
 import classes from "./MainNavigation.module.css";
-import { NavLink } from "react-router-dom";
 
-//importing path
+import { NavLink } from "react-router-dom";
 import { cartPath, productsPath } from "../../pages";
 import { useSelector } from "react-redux";
 

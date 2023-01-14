@@ -17,9 +17,11 @@ function App() {
           <Route path={productsPath}>
             <Products />
           </Route>
+
           <Route path={cartPath}>
             <Cart />
           </Route>
+
           <Route path="*">
             <NotFound />
           </Route>
