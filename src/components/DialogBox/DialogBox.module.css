@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  /* bottom: 0; */
 
   /* background-color: rgba(0, 0, 0, 0.5); */
   /* display: none; */
@@ -29,6 +29,8 @@
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
+
+  top: 1rem;
 }
 
 .dialogContent {
@@ -44,12 +46,17 @@
 }
 
 .title {
+  z-index: 100;
+
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  margin-top: 1.2rem;
 }
 
 .message {
+  z-index: 100;
+
   text-align: center;
   font-size: 1.6rem;
   margin-bottom: 1rem;
@@ -58,13 +65,14 @@
 .btn {
   z-index: 100;
   margin: 1rem;
-  padding: 1rem 2rem;
-  box-shadow: inset 0 0 0 3px #fdf2e9;
+  padding: 0.8rem 1.8rem;
+  box-shadow: inset 0 0 0 2px #fdf2e9;
   border-radius: 3px;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background-color: transparent;
   transition: all 0.3s;
   cursor: pointer;
+  display: none;
 }
 
 .btn:hover {
