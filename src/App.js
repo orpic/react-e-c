@@ -17,7 +17,6 @@ function App() {
           <Route path={productsPath}>
             <Products />
           </Route>
-
           <Route path={cartPath}>
             <Cart />
           </Route>
