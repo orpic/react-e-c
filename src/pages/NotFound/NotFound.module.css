@@ -1,0 +1,12 @@
+.heading {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 6rem;
+  color: #eb984e;
+}
+.message {
+  text-align: center;
+  font-size: 2rem;
+  color: #e67e22;
+}

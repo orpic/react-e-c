@@ -1,7 +1,7 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import { Layout } from "./components";
 import { useProductFetch } from "./hooks";
-import { Cart, cartPath, Products, productsPath } from "./pages";
+import { Cart, cartPath, NotFound, Products, productsPath } from "./pages";
 
 function App() {
   useProductFetch();
@@ -19,6 +19,9 @@ function App() {
           </Route>
           <Route path={cartPath}>
             <Cart />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </Layout>
