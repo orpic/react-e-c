@@ -7,18 +7,12 @@ import { useSelector } from "react-redux";
 import { useFilterProducts, useSearchProducts } from "../../hooks";
 
 const ProductArea = () => {
-  //Getting Product current status
   const status = useSelector((state) => state.product.status);
-  //Geting product list
   const productsList = useSelector((state) => state.product.products);
-  //Getting search terms from search bar via store
   const searchTermList = useSelector((state) => state.search.terms);
-  //Using search hook search in free text in productList acc to search terms
-  const { searchResults, setSearchTerms } = useSearchProducts(productsList);
-
-  //Getting checkBoxList
   const checkBoxList = useSelector((state) => state.filter);
-  //Using filter hook to filter
+
+  const { searchResults, setSearchTerms } = useSearchProducts(productsList);
   const { filteredProducts, setCheckboxState } = useFilterProducts(
     checkBoxList,
     searchResults

@@ -1,5 +1,4 @@
 import React from "react";
-// eslint-disable-next-line
 import classes from "./FilterSection.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +11,6 @@ const FilterSection = () => {
   const genderList = useSelector((state) => state.filter.gender);
   const typeList = useSelector((state) => state.filter.type);
   const priceList = useSelector((state) => state.filter.price);
-  // console.log(colorList, genderList, typeList);
 
   const onCheckColorChangeHandler = (event) => {
     dispatch(
