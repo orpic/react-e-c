@@ -26,22 +26,39 @@
   }
 }
 
+@media (max-width: 850px) {
+  .subHead {
+    /* margin-bottom: 1rem; */
+  }
+  .filterSubHeading {
+    width: 8rem;
+  }
+
+  .leftMargin {
+    margin-right: 0;
+  }
+}
+
 /* ///////////////////////////////////////////////////////////////////// */
 /* ///////////////////////////////////////////////////////////////////// */
 /* The checkbox styles */
 
-/* The container */
+/* The label container */
 .container {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 3.6rem;
+  margin-bottom: 1.2rem;
   cursor: pointer;
   font-size: 1.6rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.container span {
+  margin-top: -0.3rem;
 }
 
 /* Hide the browser's default checkbox */
@@ -61,7 +78,7 @@
   height: 2.4rem;
   width: 2.4rem;
   background-color: #eee;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -88,13 +105,20 @@
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: 8px;
-  top: 4px;
-  width: 5px;
-  height: 10px;
+  left: 0.9rem;
+  top: 0.4rem;
+  width: 0.4rem;
+  height: 1rem;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+@media (max-width: 1200px) {
+  .container .checkmark:after {
+    left: 0.85rem;
+    top: 0.35rem;
+  }
 }

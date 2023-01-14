@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { cartActions } from "../../store/cartSlice";
 import { DialogBox } from "../../components";
+import { useDialogMessage, useDialogTimeout } from "../../hooks";
 const ProductCard = ({
   id,
   quantity,
@@ -12,39 +13,15 @@ const ProductCard = ({
   productPrice,
 }) => {
   const dispatch = useDispatch();
-  ///////////////////////////////////////
-  // variable declare - dialog control and message
-  const [isOpen, setIsOpen] = useState(false);
-  const [dialogMessage, setDialogMessage] = useState({
-    title: "",
-    message: "",
-  });
-
-  // variable declare - quantity left for us to add
-  const [quantityLeft, setQuantityLeft] = useState(0);
-  // for setting cart quantity (cart may not have item yet)
-  const [cartQuantity, setCartQuantity] = useState(0);
   const cart = useSelector((state) => state.cart.items);
 
-  ///////////////////////////////////////
-  // removing the dialog after a timeout
-  useEffect(() => {
-    const tim = setTimeout(() => {
-      if (isOpen) {
-        setIsOpen(false);
-      }
-    }, 4500);
+  const [quantityLeft, setQuantityLeft] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useDialogTimeout();
+  const [dialogMessage, setDialogMessage] = useDialogMessage();
 
-    return () => {
-      clearTimeout(tim);
-    };
-  }, [isOpen, setIsOpen]);
-
-  ///////////////////////////////////////
-  // setting values
   useEffect(() => {
     const cartItem = cart.find((item) => item.id === id);
-    // console.log(cartItem);
     if (cartItem) {
       setQuantityLeft(quantity - cartItem.quantity);
       setCartQuantity(cartItem.quantity);
@@ -54,8 +31,7 @@ const ProductCard = ({
     }
   }, [quantity, cart, id]);
 
-  ///////////////////////////////////////
-  // increase already present item in cart
+  // increase single piece in cart
   const increaseCartHandler = () => {
     if (quantityLeft > 0) {
       dispatch(
@@ -64,9 +40,7 @@ const ProductCard = ({
         })
       );
     } else {
-      //open the diaolog
-      setIsOpen(true);
-      //dialog message
+      setIsDialogOpen(true);
       setDialogMessage({
         title: "Limited Stock",
         message: `We only have ${quantity} piece(s) in our store`,
@@ -74,34 +48,27 @@ const ProductCard = ({
     }
   };
 
-  ///////////////////////////////////////
-  //remove single piece from cart
+  // remove single piece in cart
   const decreaseCartHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));
   };
 
-  // adding for first time
+  // first time product add to cart
   const addToCartHandler = () => {
-    // console.log(quantityLeft, cartQuantity);
-
-    // if adding for first time
     if (quantityLeft > 0 && cartQuantity === 0) {
-      // console.log(" > 0 , === 0 ");
       dispatch(
         cartActions.addItemToCart({
           id: id,
-          imageUrl: productImage,
+          imageURL: productImage,
           name: productName,
           price: productPrice,
         })
       );
     }
 
-    // if product quantity is 0
+    // if initial product quantity is 0
     if (quantityLeft === 0) {
-      // console.log(" === 0 ,  -- ");
-      //dialog box
-      setIsOpen(true);
+      setIsDialogOpen(true);
       setDialogMessage({
         title: "Stock out",
         message: "We will re-stock soon",
@@ -112,11 +79,7 @@ const ProductCard = ({
   return (
     <>
       <div className={classes.cardContainer}>
-        <DialogBox
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          dialogMessage={dialogMessage}
-        />
+        <DialogBox dialogIsOpen={isDialogOpen} dialogMessage={dialogMessage} />
         <img
           className={classes.productImage}
           src={productImage}

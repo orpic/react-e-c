@@ -9,7 +9,7 @@ const FilterSubHead = ({ subHead, getList, onCheckCallback }) => {
       <div className={classes.leftMargin}>
         {getList.map((eachItem) => (
           <label key={eachItem.value} className={classes.container}>
-            {eachItem.value}
+            <span>{eachItem.value}</span>
             <input
               type="checkbox"
               value={eachItem.value}
