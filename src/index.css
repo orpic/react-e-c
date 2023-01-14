@@ -56,10 +56,25 @@ Medium: 11px
   box-sizing: border-box;
 }
 
-/* *:focus { */
-/* outline: none; */
-/* box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5); */
-/* } */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+*:focus {
+  -webkit-tap-highlight-color: transparent;
+
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  /* box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.4); */
+}
 
 html {
   font-size: 62.5%;

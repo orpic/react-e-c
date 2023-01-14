@@ -23,7 +23,7 @@ const MainNavigation = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <NavLink to="/">TeeRex Store</NavLink>
+        <NavLink to="/">TeeRexStore</NavLink>
       </div>
       <nav className={classes.nav}>
         <ul className={classes.ul}>
