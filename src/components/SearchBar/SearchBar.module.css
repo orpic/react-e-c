@@ -1,6 +1,6 @@
 .border {
   border: 2px solid #eb984e;
-  border-radius: 9px;
+  border-radius: 3px;
   transition: all 0.3s;
 }
 
@@ -18,7 +18,7 @@ button {
   padding: 1rem;
 
   border: none;
-  border-radius: 9px;
+  border-radius: 3px;
   color: inherit;
   font-family: inherit;
   font-size: 2rem;
@@ -26,7 +26,7 @@ button {
 
 .clearButton {
   padding: 0.6rem 1rem;
-  border-radius: 9px;
+  border-radius: 3px;
   font-size: 1.4rem;
   margin-right: 1rem;
   background-color: #fdf2e9;
@@ -41,7 +41,9 @@ button {
   padding: 1rem 2rem;
   font-size: 2rem;
 
-  border-radius: 9px;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 
   background-color: #fdf2e9;
   cursor: pointer;
