@@ -1,4 +1,4 @@
-# React-tee-rex-shop
+# React-ecom-shop
 
 An e-commerce shop front-end with products and cart
 
