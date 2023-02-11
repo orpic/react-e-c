@@ -2,6 +2,8 @@
 
 An e-commerce shop front-end with products and cart
 
+![Live](media/e-c-live.png)
+
 [Problem Statement](https://www.geektrust.com/coding/detailed/teerex-store)
 
 ## Deployed
@@ -9,6 +11,13 @@ An e-commerce shop front-end with products and cart
 [Link to firebase app](https://tee-rex-ecom.firebaseapp.com/products)  
 Deployed on firebase  
 Github Actions setup for continuous delpoyment
+
+
+## Geektrust review
+
+![Main](media/e-c-main.png)
+![Detail](media/e-c-detail.png)
+
 
 ## Run Locally
 
