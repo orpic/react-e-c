@@ -1,4 +1,4 @@
-# React-tee-rex-shop
+# React-ecom-shop
 
 An e-commerce shop front-end with products and cart
 
@@ -6,7 +6,7 @@ An e-commerce shop front-end with products and cart
 
 ## Deployed
 
-[firebase-app](https://tee-rex-ecom.firebaseapp.com/products)  
+[Link to firebase app](https://tee-rex-ecom.firebaseapp.com/products)  
 Deployed on firebase  
 Github Actions setup for continuous delpoyment
 
