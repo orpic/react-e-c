@@ -2,7 +2,7 @@
 
 An e-commerce shop front-end with products and cart
 
-<img src="./media/e-c-live.png" />
+![ScreenShot](media/e-c-main.png)
 
 [Problem Statement](https://www.geektrust.com/coding/detailed/teerex-store)
 
