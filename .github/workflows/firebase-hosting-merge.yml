@@ -8,6 +8,7 @@ name: Deploy to Firebase Hosting on merge
       - master
     paths-ignore:
       - "**/README.md"
+      - "media/**"
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
