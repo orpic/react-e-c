@@ -2,7 +2,7 @@
 
 An e-commerce shop front-end with products and cart
 
-![Live](media/e-c-live.png)
+<img src="./media/e-c-live.png" />
 
 [Problem Statement](https://www.geektrust.com/coding/detailed/teerex-store)
 
@@ -15,8 +15,8 @@ Github Actions setup for continuous delpoyment
 
 ## Geektrust review
 
-![Main](media/e-c-main.png)
-![Detail](media/e-c-detail.png)
+<img src="./media/e-c-main.png" />
+<img src="./media/e-c-detail.png" />
 
 
 ## Run Locally
